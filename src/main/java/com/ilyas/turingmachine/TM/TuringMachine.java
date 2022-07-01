@@ -22,9 +22,9 @@ public class TuringMachine {
         halted = false;
     }
 
-    public TuringMachine(TuringMachineProperties properties, String userInpuString, String initialState) {
+    public TuringMachine(TuringMachineProperties properties, String userInpuString) {
         this.properties = properties;
-        this.current_state = initialState;
+        this.current_state = properties.getInitial_state();
         IntStream.range(0, userInpuString.length()).forEach(i -> this.tape.put(i, userInpuString.substring(i, i + 1)));
     }
 

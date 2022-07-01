@@ -5,8 +5,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "addition")
+@ConfigurationProperties(prefix = "power")
 @PropertySource(value = "classpath:algorithms.yaml", factory = YamlPropertySourceFactory.class)
-public class AdditionTMProperties extends TuringMachineProperties {
+public class PowerTMProperties extends TuringMachineProperties {
 
 }

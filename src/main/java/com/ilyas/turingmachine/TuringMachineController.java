@@ -3,7 +3,9 @@ package com.ilyas.turingmachine;
 import java.util.Map;
 
 import com.ilyas.turingmachine.TM.AdditionTMProperties;
+import com.ilyas.turingmachine.TM.PowerTMProperties;
 import com.ilyas.turingmachine.TM.TuringMachine;
+import com.ilyas.turingmachine.TM.TuringMachineProperties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,6 +22,8 @@ public class TuringMachineController {
 
     @Autowired
     AdditionTMProperties additionTMProperties;
+    @Autowired
+    PowerTMProperties powerTMProperties;
 
     @GetMapping
     public String testing() throws InterruptedException {
@@ -27,14 +31,19 @@ public class TuringMachineController {
     }
 
     @GetMapping("/prop")
-    public TuringMachine getProp() throws InterruptedException {
-        return new TuringMachine(additionTMProperties, "/prop endpoint", additionTMProperties.getInitial_state());
+    public TuringMachineProperties getProp() throws InterruptedException {
+        return powerTMProperties;
     }
 
     @GetMapping(value = "/addition", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Map<Integer, String>> getAdditionResult(@RequestParam("inputs") String inputs) {
-        TuringMachine additionTM = new TuringMachine(additionTMProperties, inputs,
-                additionTMProperties.getInitial_state());
+        TuringMachine additionTM = new TuringMachine(additionTMProperties, inputs);
+        return Flux.create(emitter -> additionTM.run(emitter, inputs));
+    }
+
+    @GetMapping(value = "/power", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Map<Integer, String>> getPowerResult(@RequestParam("inputs") String inputs) {
+        TuringMachine additionTM = new TuringMachine(powerTMProperties, inputs);
         return Flux.create(emitter -> additionTM.run(emitter, inputs));
     }
 }
