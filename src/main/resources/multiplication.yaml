@@ -1,0 +1,66 @@
+multiplication:
+  # pattern : 0/1c0/1c 
+  name: multiplication
+  states: [
+    q0, q1, q2, q3, q4, q5, q6, q7,
+    q8, q9, q10, q11, q12, q13, q14,
+    q15, q16, q17, q18, q19, q20, H
+  ]
+  # input_symbols: [0,1]
+  blank_symbol: B
+  accepting_states: H
+  initial_state: q0
+  transitions:
+    # currState_currSymbol : nexState_nextSymbol_direction
+    q0_0: q1_B_1
+    q0_1: q9_B_1
+    q0_c: q19_B_1
+    q1_0: q1_0_1
+    q1_c: q2_c_1
+    q2_0: q3_X_1
+    q2_c: q17_c_-1
+    q2_1: q6_Y_1
+    q3_0: q3_0_1
+    q3_c: q4_c_1
+    q4_0: q4_0_1
+    q4_B: q5_0_-1
+    q5_0: q5_0_-1
+    q5_c: q5_c_-1
+    q5_X: q2_X_1
+    q6_c: q7_c_1
+    q6_1: q6_1_1
+    q7_1: q7_1_1
+    q7_B: q8_1_-1
+    q8_1: q8_1_-1
+    q8_c: q8_c_-1
+    q8_Y: q2_Y_1
+    q9_1: q9_1_1
+    q9_c: q10_c_1
+    q10_0: q11_X_1
+    q10_1: q14_Y_1
+    q10_c: q17_c_-1
+    q11_0: q11_0_1
+    q11_c: q12_c_1
+    q12_1: q12_1_1
+    q12_B: q13_1_-1
+    q13_0: q13_0_-1
+    q13_1: q13_1_-1
+    q13_c: q13_c_-1
+    q13_X: q10_X_1
+    q14_1: q14_1_1
+    q14_c: q15_c_1
+    q15_0: q15_0_1
+    q15_B: q16_0_-1
+    q16_0: q16_0_-1
+    q16_1: q16_1_-1
+    q16_c: q16_c_-1
+    q16_Y: q10_Y_1
+    q17_c: q18_c_-1
+    q17_X: q17_0_-1
+    q17_Y: q17_1_-1
+    q18_0: q18_0_-1
+    q18_1: q18_1_-1
+    q18_B: q0_B_1
+    q19_0: q19_B_1
+    q19_1: q19_B_1
+    q19_c: H_B_1

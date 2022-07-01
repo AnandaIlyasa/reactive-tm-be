@@ -1,0 +1,42 @@
+logarithm:
+  # input pattern : 1
+  name: logarithm
+  states: [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, H]
+  # input_symbols: [0,1]
+  blank_symbol: B
+  accepting_states: H
+  initial_state: q0
+  transitions:
+    # currState_currSymbol : nexState_nextSymbol_direction
+    q0_1: q1_1_1
+    q0_B: H_B_1
+    q1_1: q2_1_1
+    q1_B: q11_B_-1
+    q2_1: q3_X_1
+    q2_B: q11_B_-1
+    q3_1: q4_X_-1
+    q3_X: q3_X_1
+    q3_B: q7_B_-1
+    q4_0: q4_0_-1
+    q4_1: q4_1_-1
+    q4_X: q4_X_-1
+    q4_B: q5_B_1
+    q5_0: q6_1_1
+    q5_1: q5_0_1
+    q5_X: q6_1_1
+    q6_0: q6_0_1
+    q6_1: q6_1_1
+    q6_X: q3_X_1
+    q7_0: q7_0_-1
+    q7_1: q7_1_-1
+    q7_X: q7_B_-1
+    q7_B: q8_B_1
+    q8_0: q8_1_1
+    q8_1: q9_1_1
+    q9_0: q9_1_1
+    q9_1: q10_1_1
+    q9_B: q11_B_-1
+    q10_0: q10_1_1
+    q10_1: q10_1_1
+    q10_B: H_B_-1
+    q11_1: H_B_-1

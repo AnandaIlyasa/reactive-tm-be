@@ -1,0 +1,42 @@
+modulo:
+  # pattern : 0c0c
+  name: modulo
+  states: [q0, q1, q2, q3, q4, q5, q6, q7, H]
+  # input_symbols: [0,1]
+  blank_symbol: B
+  accepting_states: H
+  initial_state: q0
+  transitions:
+    # currState_currSymbol : nexState_nextSymbol_direction
+    q0_0: q0_0_1
+    q0_c: q0_c_1
+    q0_B: q1_B_-1
+    q1_c: q2_c_-1
+    q2_0: q3_Y_-1
+    q2_c: q7_c_1
+    q3_0: q3_0_-1
+    q3_c: q4_c_-1
+    q4_X: q4_X_-1
+    q4_c: q4_c_-1
+    q4_B: q10_B_1
+    q4_0: q5_X_1
+    q5_0: q5_0_1
+    q5_X: q5_X_1
+    q5_c: q6_c_1
+    q6_0: q6_0_1
+    q6_c: q6_c_1
+    q6_Y: q2_Y_-1
+    q7_Y: q7_0_1
+    q7_c: q8_c_-1
+    q8_0: q8_0_-1
+    q8_c: q8_c_-1
+    q8_X: q9_c_-1
+    q9_X: q9_c_-1
+    q9_0: q9_0_-1
+    q9_B: q0_B_1
+    q10_X: q11_0_1
+    q11_c: q11_B_1
+    q11_Y: q11_B_1
+    q11_0: q11_B_1
+    q11_X: q11_0_1
+    q11_B: H_B_1

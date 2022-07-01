@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "addition")
-@PropertySource(value = "classpath:algorithms.yaml", factory = YamlPropertySourceFactory.class)
+@PropertySource(value = "classpath:addition.yaml", factory = YamlPropertySourceFactory.class)
 public class AdditionTMProperties extends TuringMachineProperties {
 
 }
